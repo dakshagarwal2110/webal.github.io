@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="home.css">
+    <title>Web alert!</title>
+</head>
+<style>
+
+</style>
+<header>
+    <div class="container" style="display: flex; box-sizing: border-box;width: 100vw;">
+        <div class="name" style="box-sizing: border-box;margin-left: 14px;">
+            <h2 style="color: goldenrod;">Web Alert!</h2>
+        </div>
+        <div class="news">
+            <input type="button" name="news" value="Add news" id="addnews">
+        </div>
+        <div class="search">
+            <img src="images/magnifying-glass.png"><a href="search.html"></a>
+        </div>
+        <div class="home">
+            <i class="fa fa-home fa-2x" aria-hidden="true" style="color: white;"></i>
+        </div>
+
+
+
+    </div>
+    <div class="action">
+        <div class="profile" onclick="menutoggle();">
+            <img src="pp.jpg">
+        </div>
+        <div class="menu">
+            <h3>Daksh agarwal</h3>
+            <ul>
+                <li><img src="images/user (1).png"><a href="#">Profile</a></li>
+                <li><img src="images/editicon.PNG"><a href="#">Edit details</a></li>
+                <li><img src="images/user (2).png"><a href="#">Change Password</a></li>
+                <li><img src="images/logout.png"><a href="#">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+<style>
+    .newsadd {
+        z-index: 1000;
+        position: absolute;
+        display: none;
+        width: 100vw;
+        height: 100vw;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: wheat;
+        align-items: center;
+    }
+
+    .black {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        opacity: 0.7;
+        background: black;
+        z-index: 10000;
+        /* width: 100%;
+        height: 100%; */
+
+    }
+
+    .newsadd form {
+        position: fixed;
+        top: 99px;
+        left: 421px;
+        z-index: 100000;
+        line-height: 61px;
+        width: 45%;
+        height: 71%;
+        opacity: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: black;
+        box-sizing: border-box;
+    }
+
+    .form input {
+        border-radius: 8px;
+    }
+
+    .send input {
+        background-color: rgb(212, 48, 48);
+        width: 74px;
+        border-radius: 13px;
+        color: white;
+    }
+
+    @media(max-width:1078px) {
+        .newsadd form {
+            position: fixed;
+            top: 99px;
+            left: 283px;
+            z-index: 100000;
+            line-height: 61px;
+            width: 45%;
+            height: 71%;
+            opacity: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: black;
+            box-sizing: border-box;
+        }
+    }
+
+    @media(max-width:830px) {
+        .newsadd form {
+            position: fixed;
+            top: 99px;
+            left: 216px;
+            font-size: 11px;
+        }
+
+        .location input {
+            width: 197px;
+            font-size: 11px;
+        }
+
+        .matter textarea {
+            font-size: 11px;
+            width: 216px;
+        }
+
+        .newsadd form {
+            width: 45%;
+        }
+    }
+
+    @media(max-width:636px) {
+        .newsadd form {
+            font-size: 9px;
+        }
+
+        .location input {
+            width: 162px;
+            font-size: 9px;
+        }
+
+        .crimeima input {
+            font-size: 10px;
+        }
+
+        .matter textarea {
+            font-size: 10px;
+            width: 172px;
+        }
+
+        .send input {
+            background-color: rgb(212, 48, 48);
+            width: 55px;
+            border-radius: 13px;
+            color: white;
+            font-size: 10px;
+        }
+
+        .newsadd form {
+            height: 52%;
+        }
+
+
+    }
+
+    @media(max-width:566px) {
+        .newsadd form {
+            position: fixed;
+            top: 99px;
+            left: 134px;
+        }
+    }
+
+    @media(max-width:500px) {
+        .location input {
+            width: 128px;
+            font-size: 7px;
+        }
+
+        .crimeima input {
+            font-size: 8px;
+        }
+
+        .matter textarea {
+            font-size: 8px;
+            width: 132px;
+            height: 67px;
+        }
+
+        .newsadd form {
+            line-height: 28px;
+            font-size: 8px;
+        }
+    }
+
+    @media(max-width:402px) {
+        .location {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .crimeima {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .newsadd form {
+            line-height: 32px;
+            font-size: 8px;
+        }
+    }
+
+    @media(max-width:367px) {
+        .newsadd form {
+            position: fixed;
+            top: 99px;
+            left: 86px;
+        }
+
+    }
+
+    @media(max-width:349px) {
+        .matter textarea {
+            font-size: 8px;
+            width: 117px;
+            height: 60px;
+        }
+
+        .newsadd form {
+            min-width: 155px;
+        }
+
+        .newsadd form {
+            line-height: 28px;
+            font-size: 7px;
+        }
+
+        .newsadd form {
+           min-height: 37%;
+        }
+
+        .crimeima input {
+            font-size: 7px;
+        }
+    }
+
+    @media(max-width:291px) {
+        .newsadd form {
+            position: fixed;
+            top: 99px;
+            left: 38px;
+        }
+    }
+
+    @media(max-width:209px) {
+        .newsadd form {
+            position: fixed;
+            top: 71px;
+            left: 19px;
+        }
+    }
+
+    @media(max-width:937px) {
+        .newsadd form {
+    
+            background-color: #627d17;
+            box-sizing: border-box;
+        }
+    }
+    @media (max-height:476px){
+        .newsadd form {
+            line-height: 28px;
+
+        }
+        
+    }
+</style>
+
+<body>
+    <div class="newsadd" id="show">
+        <div class="black">
+
+        </div>
+        <form action="" method="POST" enctype="multipart/form-data" id="formm">
+            <div class="location">
+                LOCATION : <input type="text" name="address" placeholder="Location where incident happened">
+            </div>
+            <div class="cont">
+                <div class="crimeima">
+                    <label for="file">IMAGE :</label>
+                    <input type="file" name="file" id="file" class="form-control" placeholder="Profile pic">
+                </div>
+                <div class="matter">
+                    <textarea name="matt" id="matter" placeholder="!! Incident that happened !!" cols="15"
+                        rows="6"></textarea>
+                </div>
+                <div class="send">
+                    <input type="submit" name="send" value="submit" id="sendd">
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="feeds">
+
+        <div class="post">
+            <div class="posthead">
+                <div class="image">
+                    <img src="pp.jpg">
+                </div>
+
+                <p>Daksh agarwal</p>
+            </div>
+            <div class="postbody">
+                <div class="crime">
+                    <img src="Capture.PNG">
+                </div>
+                <div class="article">
+                    <div class="address">
+                        <p><b><i>Nai basti b-14 bijnor Uttar-pradesh</i></b></p>
+                    </div>
+                    <p>Losing a loved one is never easy but if one were to compare, there would not be a loss that could
+                        quite match the severity of losing one's parents, especially for dependent children. The death
+                        of a parent strips away the child of not just the emotional blanket of comfort, but also in
+                        several cases takes away the financial support, leaving futures in a lurch. According to the
+                        National Commission for Protection of Child Rights (NCPCR), at least 3,621 children have been
+                        orphaned during the pandemic, and over 26,000 children have lost one parent, PTI reported.
+                        (Names have been changed to protect identities)</p>
+                </div>
+            </div>
+            <div class="postfooter">
+                <div class="like">
+                    <div class="imagi">
+                        <i class="fa fa-arrow-circle-o-up fa-2x" aria-hidden="true"></i>
+                    </div>
+                    <p>17.3k</p>
+                </div>
+                <div class="dislike">
+                    <div class="imag">
+                        <i class="fa fa-arrow-circle-o-down fa-2x" aria-hidden="true"></i>
+                    </div>
+                    <p>17.3k</p>
+                </div>
+
+            </div>
+
+
+
+        </div>
+        <div class="post">
+            <div class="posthead">
+                <div class="image">
+                    <img src="we.PNG">
+                </div>
+
+                <p>Prakhar agarwal</p>
+            </div>
+            <div class="postbody">
+                <div class="crime">
+                    <img src="pp.jpg">
+                </div>
+                <div class="article">
+                    <p>Losing a loved one is never easy but if one were to compare, there would not be a loss that could
+                        quite match the severity of losing one's parents, especially for dependent children. The death
+                        of a parent strips away the child of not just the emotional blanket of comfort, but also in
+                        several cases takes away the financial support, leaving futures in a lurch. According to the
+                        National Commission for Protection of Child Rights (NCPCR), at least 3,621 children have been
+                        orphaned during the pandemic, and over 26,000 children have lost one parent, PTI reported.
+                        (Names have been changed to protect identities)</p>
+                </div>
+            </div>
+            <div class="postfooter">
+                <div class="like">
+                    <div class="imagi">
+                        <i class="fa fa-arrow-circle-o-up fa-2x" aria-hidden="true"></i>
+                    </div>
+                    <p>17.3k</p>
+                </div>
+                <div class="dislike">
+                    <div class="imag">
+                        <i class="fa fa-arrow-circle-o-down fa-2x" aria-hidden="true"></i>
+                    </div>
+                    <p>17.3k</p>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+
+</body>
+<script>
+    function menutoggle() {
+        const tm = document.querySelector('.menu');
+        tm.classList.toggle('active');
+    }
+</script>
+<script>
+
+    const li = document.querySelectorAll('.imagi');
+    li.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            btn.classList.toggle('active');
+        });
+    });
+
+
+
+    const di = document.querySelectorAll('.imag');
+    di.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            btn.classList.toggle('active');
+        });
+    });
+
+
+
+    let news = document.getElementById('addnews');
+    let show = document.getElementById('show');
+
+    news.addEventListener('click', function box() {
+        if (show.style.display != 'none') {
+            show.style.display = 'none';
+
+        } else {
+            show.style.display = 'block';
+
+        }
+    });
+
+
+
+
+</script>
+
+</html>
